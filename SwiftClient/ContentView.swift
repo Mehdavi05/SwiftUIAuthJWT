@@ -2,76 +2,54 @@
 //  ContentView.swift
 //  SwiftClient
 //
-//  Created by Mohammad Azam on 4/13/21.
+//  Created by Shujaat-Hussain on 12/5/24.
 //
 
 import SwiftUI
 
 struct ContentView: View {
-        
-    @StateObject private var loginVM = LoginViewModel()
-    @StateObject private var accountListVM = AccountListViewModel()
+    @ObservedObject var loginVM: LoginViewModel
+    @ObservedObject var accountListVM: AccountListViewModel
     
     var body: some View {
         VStack {
-            Form {
-                HStack {
-                    Spacer()
-                    Image(systemName: loginVM.isAuthenticated ? "lock.fill": "lock.open")
-                }
-                TextField("Username", text: $loginVM.username)
-                SecureField("Password", text: $loginVM.password)
-                HStack {
-                    Spacer()
-                    Button("Login") {
-                        loginVM.login()
+            switch accountListVM.result {
+            case let .success(accounts):
+                List(accounts, id: \.id) { account in
+                    HStack {
+                        Text("\(account.name)")
+                        Spacer()
+                        Text(String(format: "$%.2f", account.balance))
                     }
-                    Button("Signout") {
-                        loginVM.signout()
-                        accountListVM.accounts.removeAll()
-                    }
-                    Spacer()
-                }
-            }.buttonStyle(PlainButtonStyle())
-            
-            VStack {
+                }.listStyle(PlainListStyle())
                 
-                Spacer() 
-                if loginVM.isAuthenticated && accountListVM.accounts.count > 0 {
-                    List(accountListVM.accounts, id: \.id) { account in
-                        HStack {
-                            Text("\(account.name)")
-                            Spacer()
-                            Text(String(format: "$%.2f", account.balance))
-                        }
-                    }.listStyle(PlainListStyle())
-                } else {
-                    Text("Login to see your accounts!")
+                case let .failure(message):
+                VStack {
+                    Text(message.localizedDescription)
                 }
                 
-                Spacer()
-                
-                Button("Get Accounts") {
-                    accountListVM.getAllAccounts()
+            case .loading:
+                VStack {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                        .scaleEffect(2)
+                    
+                    Text("Loading...")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                        .padding(.top, 8)
                 }
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 16, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/))
-                
-            }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            
-           
-        } .onAppear(perform: {
-           
-        })
-        .navigationTitle("Login")
-        .embedInNavigationView()
+                .transition(.opacity) // Smooth transition effect
+            }
+        }
+        .navigationTitle("Accounts")
+        .onAppear {
+            accountListVM.getAllAccounts()
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    ContentView(loginVM: LoginViewModel(),
+                accountListVM: AccountListViewModel())
 }

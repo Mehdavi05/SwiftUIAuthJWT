@@ -7,9 +7,14 @@
 
 import Foundation
 
+enum DataFetchResult {
+    case loading
+    case success([AccountViewModel])
+    case failure(Error)
+}
+
 class AccountListViewModel: ObservableObject {
-    
-    @Published var accounts: [AccountViewModel] = []
+    @Published var result: DataFetchResult = .loading
     
     func getAllAccounts() {
         
@@ -20,17 +25,17 @@ class AccountListViewModel: ObservableObject {
         
         Webservice().getAllAccounts(token: token) { (result) in
             switch result {
-                case .success(let accounts):
-                    DispatchQueue.main.async {
-                        self.accounts = accounts.map(AccountViewModel.init)
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
+            case .success(let accounts):
+                DispatchQueue.main.async {
+                    self.result = .success(accounts.map(AccountViewModel.init))
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.result = .failure(error)
+                }
             }
         }
-        
     }
-    
 }
 
 
