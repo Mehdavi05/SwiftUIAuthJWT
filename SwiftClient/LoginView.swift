@@ -15,7 +15,7 @@ struct LoginView: View {
         NavigationView {
             VStack {
                 Spacer()
-                VStack(spacing: 16) {
+                VStack(spacing: 20) {
                     HStack {
                         Spacer()
                         Text("Enter Your Login Credentials")
@@ -24,7 +24,7 @@ struct LoginView: View {
                         Spacer()
                         Image(systemName: loginVM.isAuthenticated ? "lock.fill" : "lock.open")
                             .font(.title)
-                            .foregroundColor(.teal)
+                            .foregroundColor(.white)
                     }
                     
                     TextField("Username", text: $loginVM.username)

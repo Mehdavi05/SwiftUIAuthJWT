@@ -43,6 +43,7 @@ struct AccountsView: View {
             }
         }
         .navigationTitle("Accounts")
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             accountListVM.getAllAccounts()
         }

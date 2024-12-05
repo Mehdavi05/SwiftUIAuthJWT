@@ -336,7 +336,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftClient/Preview Content\"";
-				DEVELOPMENT_TEAM = B2Q8EGNCQA;
+				DEVELOPMENT_TEAM = MY5VCHB8ER;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SwiftClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
@@ -344,7 +344,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.azamsharp.SwiftClient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shujaat.dev.SwiftClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -358,7 +358,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftClient/Preview Content\"";
-				DEVELOPMENT_TEAM = B2Q8EGNCQA;
+				DEVELOPMENT_TEAM = MY5VCHB8ER;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SwiftClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
@@ -366,7 +366,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.azamsharp.SwiftClient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shujaat.dev.SwiftClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
