@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct AccountsView: View {
     @ObservedObject var loginVM: LoginViewModel
     @ObservedObject var accountListVM: AccountListViewModel
     
@@ -50,6 +50,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(loginVM: LoginViewModel(),
+    AccountsView(loginVM: LoginViewModel(),
                 accountListVM: AccountListViewModel())
 }

@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct LoginView: View {
-    @ObservedObject var loginVM = LoginViewModel()
-    @ObservedObject var accountListVM = AccountListViewModel()
+    @ObservedObject var loginVM: LoginViewModel
+    @ObservedObject var accountListVM: AccountListViewModel
     
     var body: some View {
-        GeometryReader { geometry in
+        NavigationView {
             VStack {
-                Form {
+                Spacer()
+                VStack(spacing: 16) {
                     HStack {
+                        Spacer()
+                        Text("Enter Your Login Credentials")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
                         Spacer()
                         Image(systemName: loginVM.isAuthenticated ? "lock.fill" : "lock.open")
                             .font(.title)
@@ -23,43 +28,48 @@ struct LoginView: View {
                     }
                     
                     TextField("Username", text: $loginVM.username)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
                     SecureField("Password", text: $loginVM.password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     HStack {
-                        Spacer()
                         Button("Login") {
                             loginVM.login()
                         }
-                        .padding()
+                        .frame(width: 100, height: 50)
                         .background(Color.teal)
-                        .foregroundColor(.white)
                         .cornerRadius(8)
+                        
+                        Spacer()
                         
                         Button("Signout") {
                             loginVM.signout()
                         }
-                        .padding()
-                        .background(Color.orange)
-                        .foregroundColor(.white)
+                        .frame(width: 100, height: 50)
+                        .background(Color.red)
                         .cornerRadius(8)
-                        Spacer()
                     }
+                    .foregroundColor(.white)
                 }
-                .buttonStyle(PlainButtonStyle())
-                .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.34) // Adjust size of the form
-                .background(Color.gray.opacity(0.2))
+                .padding()
+                .background(Color.black.opacity(0.8))
                 .cornerRadius(16)
-                .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 5)
-                .frame(maxWidth: .infinity, maxHeight: .infinity) // Center Form
+                .shadow(color: .indigo.opacity(0.3), radius: 8, x: 0, y: 4)
+                
+                Spacer()
             }
+            .padding()
+            .frame(maxHeight: .infinity, alignment: .center)
+            .navigationTitle("Login")
+            .navigationBarTitleDisplayMode(.inline)
+            .ignoresSafeArea(edges: .top)
         }
-        .navigationTitle("Login")
-        .navigationBarTitleDisplayMode(.inline)
-        .ignoresSafeArea(edges: .top)
-        .embedInNavigationView()
     }
 }
 
 #Preview {
-    LoginView()
+    let mockLoginVM = LoginViewModel()
+    let mockAccountListVM = AccountListViewModel()
+    LoginView(loginVM: mockLoginVM, accountListVM: mockAccountListVM)
 }

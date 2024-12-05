@@ -17,7 +17,7 @@
 		8D4167E52627E0A500C03817 /* AccountListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4167E42627E0A500C03817 /* AccountListViewModel.swift */; };
 		8D4167E92627E0CF00C03817 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4167E82627E0CF00C03817 /* Account.swift */; };
 		E0AA478D2D014DE2009FA851 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA478C2D014DE2009FA851 /* MainView.swift */; };
-		E0AA478F2D014E53009FA851 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA478E2D014E53009FA851 /* ContentView.swift */; };
+		E0AA478F2D014E53009FA851 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA478E2D014E53009FA851 /* AccountsView.swift */; };
 		E0AA47AC2D01D629009FA851 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA47AB2D01D629009FA851 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +34,7 @@
 		8D4167E42627E0A500C03817 /* AccountListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListViewModel.swift; sourceTree = "<group>"; };
 		8D4167E82627E0CF00C03817 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		E0AA478C2D014DE2009FA851 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		E0AA478E2D014E53009FA851 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E0AA478E2D014E53009FA851 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
 		E0AA47AB2D01D629009FA851 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,7 +75,7 @@
 				8D1C1C452625ED780026A45A /* SwiftClientApp.swift */,
 				E0AA47AB2D01D629009FA851 /* LoginView.swift */,
 				E0AA478C2D014DE2009FA851 /* MainView.swift */,
-				E0AA478E2D014E53009FA851 /* ContentView.swift */,
+				E0AA478E2D014E53009FA851 /* AccountsView.swift */,
 				8D1C1C492625ED790026A45A /* Assets.xcassets */,
 				8D1C1C4E2625ED790026A45A /* Info.plist */,
 				8D1C1C4B2625ED790026A45A /* Preview Content */,
@@ -200,7 +200,7 @@
 				8D4167DA2627852900C03817 /* LoginViewModel.swift in Sources */,
 				8D1C1C572625F17A0026A45A /* View+Extensions.swift in Sources */,
 				8D4167DE26278A6400C03817 /* Webservice.swift in Sources */,
-				E0AA478F2D014E53009FA851 /* ContentView.swift in Sources */,
+				E0AA478F2D014E53009FA851 /* AccountsView.swift in Sources */,
 				8D4167E92627E0CF00C03817 /* Account.swift in Sources */,
 				8D1C1C462625ED780026A45A /* SwiftClientApp.swift in Sources */,
 				E0AA47AC2D01D629009FA851 /* LoginView.swift in Sources */,

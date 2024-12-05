@@ -14,7 +14,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             if loginVM.isAuthenticated {
-                ContentView(loginVM: loginVM, accountListVM: accountListVM)
+                AccountsView(loginVM: loginVM, accountListVM: accountListVM)
             } else {
                 LoginView(loginVM: loginVM, accountListVM: accountListVM)
             }
